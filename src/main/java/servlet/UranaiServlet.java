@@ -11,20 +11,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-/**
- * Servlet implementation class UranaiServlet
- */
 @WebServlet("/UranaiServlet")
 public class UranaiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String[] luckArray = {"超スッキリ","スッキリ","最悪"};
+	
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response)
+	throws ServletException, IOException{
+		String[] luckArray = {"very good", "it's alright", "not my day"};
 		int index = (int)(Math.random() * 3);
 		String luck = luckArray[index];
 //		実行日を取得
@@ -32,19 +26,18 @@ public class UranaiServlet extends HttpServlet {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
 		String today = sdf.format(date);
 		
-//		htmlを出力
+//		HTML出力
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
-		out.println("html");
+		out.println("<html>");
 		out.println("<head>");
 		out.println("<meta charset=\"UTF-8\" />");
-		out.println("<title>スッキリ占い</title>");
+		out.println("<title>占いサイト</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<p>" + today + "の運勢は「" + luck + "」です</p>");
+		out.println("<p>" + today + "'s luck is" + "'" + luck + "'</p>");
 		out.println("</body>");
 		out.println("</html>");
 	}
-
 }

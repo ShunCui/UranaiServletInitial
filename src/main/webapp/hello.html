@@ -2,9 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>登録画面</title>
 </head>
 <body>
+	<h1>登録情報を入力してください</h1>
+	<form action="/example1/UranaiServlet" method="get">
+	  名前：<input type="text" name="name" size="10" /><br/>
+	  パスワード：<input type="password" name="pass" size="10"><br/>
+	  
+	  年齢：
+	  <input type="radio" name="age" value="child" />18才未満
+	  <input type="radio" name="age" value="adult" />18才以上<br/>
+	  
+	  開発経験：
+	  <input type="checkbox" name="lang" value="Python" />Python
+	  <input type="checkbox" name="lang" value="JavaScript" />JavaScript<br/>
 
-</body>
-</html>
+	  住所：
+	  <select name="address" size="1">
+	    <option value="北海道">北海道</option>
+	    <option value="東北">東北</option>
+	    <option value="関東">関東</option>
+	    <option value="中部">中部</option>
+	    <option value="近畿">近畿</option>
+	    <option value="中国">中国</option>  
+	  </select><br/>
+
+	  ご意見お問い合わせ：<br/>
+	  <textarea name="msg" rows="5" cols="50"></textarea><br/>
+
+	  <input type="submit" value="送信"/>
+	  <input type="reset" value="取り消し" />
+	</form>
